@@ -11,14 +11,14 @@
 
 SLAVE_LAG_LIMIT=5
 MYSQL_HOST="localhost"
-MYSQL_PORT="3306"
-MYSQL_USERNAME='root'
-MYSQL_PASSWORD='password'
+MYSQL_PORT="@MYSQL_PORT@"
+MYSQL_USERNAME='@MYSQL_USER@'
+MYSQL_PASSWORD='@MYSQL_PASSWORD@'
+MYSQL_BIN='@MYSQL_BIN@'
 MYSQL_OPTS="-q -A --connect-timeout=10"
 TMP_FILE="/dev/shm/mysqlchk.$$.out"
 ERR_FILE="/dev/shm/mysqlchk.$$.err"
 FORCE_FAIL="/dev/shm/proxyoff"
-MYSQL_BIN='/usr/bin/mysql'
 
 preflight_check()
 {

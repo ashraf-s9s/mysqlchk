@@ -2,7 +2,7 @@
 
 Based on ClusterControl's mysqlchk script but built for MySQL Replication. It detects the MySQL replication role on the database node as per below:
 
-* if master (``SHOW SLAVE HOSTS > 1`` AND ``read_only = OFF``),
+* if master (``read_only = OFF``),
  * return 'MySQL master is running.'
 
 * if slave (``Slave_IO_Running = Yes`` AND ``Slave_SQL_Running = Yes`` AND (``Seconds_Behind_Master = 0`` OR ``Seconds_Behind_Master < SLAVE_LAG_LIMIT``))

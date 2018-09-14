@@ -80,7 +80,7 @@ if [[ "${SLAVE_IO}" == "Yes" ]] && [[ "${SLAVE_SQL}" == "Yes" ]]; then
     SLAVE_LAG=$(${CMDLINE} 'SHOW SLAVE STATUS' --vertical 2>/dev/null | grep Seconds_Behind_Master | tail -1 | awk {'print $2'})
     if [[ $SLAVE_LAG = 0 ]]; then
         return_ok
-    elif [[ $SLAVE_LAG < $SLAVE_LAG_LIMIT ]] ; then
+    elif [ $SLAVE_LAG -lt $SLAVE_LAG_LIMIT ] ; then
         return_ok
     fi
 else
